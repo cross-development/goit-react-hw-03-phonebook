@@ -47,10 +47,18 @@ export class ContactForm extends Component {
 
 				<label>
 					Number
-					<input className={styles.formInput} name="number" value={number} type="text" onChange={this.handleChange} />
+					<input
+						className={styles.formInput}
+						name="number"
+						value={number}
+						type="text"
+						onChange={this.handleChange}
+					/>
 				</label>
 
-				<button className={styles.contactFormButton} type="submit">Add contact</button>
+				<button className={styles.contactFormButton} type="submit">
+					Add contact
+				</button>
 			</form>
 		);
 	}

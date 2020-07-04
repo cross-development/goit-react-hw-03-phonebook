@@ -17,6 +17,14 @@ export class App extends Component {
 	};
 
 	addContact = (name, number) => {
+		const { contacts } = this.state;
+
+		const isContactExists = contacts.find(contact => contact.name.includes(name));
+
+		if (isContactExists) {
+			return alert(`${name} is already in contacts`);
+		}
+
 		const contact = {
 			id: uuid(),
 			name,
@@ -35,16 +43,6 @@ export class App extends Component {
 
 		return contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()));
 	};
-
-	// handleCheckName = contactName => {
-	// 	this.setState(prevState => ({
-	// 		contacts: prevState.contacts.map(contact =>
-	// 			contact.name.includes(contactName)
-	// 				? alert('Alert')
-	// 				: { contacts: [...prevState.contacts, contact] },
-	// 		),
-	// 	}));
-	// };
 
 	removeContact = contactId => {
 		this.setState(prevState => {
@@ -79,11 +77,7 @@ export class App extends Component {
 					)}
 
 					{contacts.length > 0 && (
-						<ContactList
-							contacts={visibleContact}
-							onRemoveContact={this.removeContact}
-							// onCheckName={this.handleCheckName}
-						/>
+						<ContactList contacts={visibleContact} onRemoveContact={this.removeContact} />
 					)}
 				</Section>
 			</>

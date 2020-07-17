@@ -13,6 +13,8 @@ const Filter = ({ title, value, onChangeFilter }) => {
 					className={styles.phonebookInput}
 					type="text"
 					value={value}
+					autoComplete="off"
+					autoFocus
 					onChange={e => onChangeFilter(e.target.value)}
 				/>
 			</label>

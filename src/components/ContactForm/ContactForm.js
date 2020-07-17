@@ -40,6 +40,8 @@ export class ContactForm extends Component {
 						className={styles.formInput}
 						name="name"
 						value={name}
+						autoComplete="off"
+						autoFocus
 						type="text"
 						onChange={this.handleChange}
 					/>
@@ -51,6 +53,8 @@ export class ContactForm extends Component {
 						className={styles.formInput}
 						name="number"
 						value={number}
+						autoComplete="off"
+						autoFocus
 						type="text"
 						onChange={this.handleChange}
 					/>

@@ -1,10 +1,10 @@
 //Core
 import React, { Component } from 'react';
 //Components
-import Section from '../Section/Section';
-import ContactForm from '../ContactForm/ContactForm';
-import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
+import Section from '../Section/Section';
+import ContactList from '../ContactList/ContactList';
+import ContactForm from '../ContactForm/ContactForm';
 //Utils
 import { v4 as uuid } from 'uuid';
 //Styles
@@ -24,9 +24,11 @@ export class App extends Component {
 		}
 	}
 
-	componentDidUpdate(prevState) {
-		if (prevState.contacts !== this.state.contacts) {
-			localStorage.setItem('contact', JSON.stringify(this.state.contacts));
+	componentDidUpdate(prevProps, prevState) {
+		const { contacts } = this.state;
+
+		if (prevState.contacts !== contacts) {
+			localStorage.setItem('contact', JSON.stringify(contacts));
 		}
 	}
 
@@ -55,7 +57,7 @@ export class App extends Component {
 	getVisibleContacts = () => {
 		const { contacts, filter } = this.state;
 
-		return contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()));
+		return contacts.filter(({ name }) => name.toLowerCase().includes(filter.toLowerCase()));
 	};
 
 	removeContact = contactId => {

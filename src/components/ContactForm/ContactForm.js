@@ -37,7 +37,7 @@ export class ContactForm extends Component {
 				<label>
 					Name
 					<input
-						className={styles.formInput}
+						className={styles.input}
 						autoFocus
 						type="text"
 						name="name"
@@ -50,8 +50,7 @@ export class ContactForm extends Component {
 				<label>
 					Number
 					<input
-						className={styles.formInput}
-						autoFocus
+						className={styles.input}
 						type="text"
 						name="number"
 						autoComplete="off"
@@ -60,7 +59,7 @@ export class ContactForm extends Component {
 					/>
 				</label>
 
-				<button className={styles.contactFormButton} type="submit">
+				<button className={styles.button} type="submit">
 					Add contact
 				</button>
 			</form>

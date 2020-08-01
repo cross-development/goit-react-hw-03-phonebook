@@ -1,14 +1,12 @@
 //Core
 import React, { Component } from 'react';
 //Components
-import Filter from '../Filter/Filter';
-import Section from '../Section/Section';
-import ContactList from '../ContactList/ContactList';
-import ContactForm from '../ContactForm/ContactForm';
+import Filter from '../Filter';
+import Section from '../Section';
+import ContactList from '../ContactList';
+import ContactForm from '../ContactForm';
 //Utils
 import { v4 as uuid } from 'uuid';
-//Styles
-import './App.module.css';
 
 export class App extends Component {
 	state = {
@@ -58,7 +56,7 @@ export class App extends Component {
 		return contacts.filter(({ name }) => name.toLowerCase().includes(filter.toLowerCase()));
 	};
 
-	removeContact = contactId => {
+	removeContactById = contactId => {
 		this.setState(prevState => ({
 			contacts: prevState.contacts.filter(({ id }) => id !== contactId),
 		}));
@@ -89,7 +87,7 @@ export class App extends Component {
 					)}
 
 					{contacts.length > 0 && (
-						<ContactList contacts={visibleContact} onRemoveContact={this.removeContact} />
+						<ContactList contacts={visibleContact} onRemoveContact={this.removeContactById} />
 					)}
 				</Section>
 			</>

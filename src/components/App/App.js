@@ -15,7 +15,7 @@ export class App extends Component {
 	};
 
 	componentDidMount() {
-		const existContact = localStorage.getItem('contact');
+		const existContact = localStorage.getItem('contacts');
 
 		if (existContact) {
 			this.setState({ contacts: JSON.parse(existContact) });
@@ -26,7 +26,7 @@ export class App extends Component {
 		const { contacts } = this.state;
 
 		if (prevState.contacts !== contacts) {
-			localStorage.setItem('contact', JSON.stringify(contacts));
+			localStorage.setItem('contacts', JSON.stringify(contacts));
 		}
 	}
 

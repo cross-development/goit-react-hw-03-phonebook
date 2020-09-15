@@ -14,11 +14,7 @@ export class ContactForm extends Component {
 		number: '',
 	};
 
-	handleChange = e => {
-		const { name, value } = e.target;
-
-		this.setState({ [name]: value });
-	};
+	handleChange = ({ target: { name, value } }) => this.setState({ [name]: value });
 
 	handleSubmit = e => {
 		e.preventDefault();
@@ -37,12 +33,12 @@ export class ContactForm extends Component {
 				<label>
 					Name
 					<input
-						className={styles.input}
 						autoFocus
 						type="text"
 						name="name"
-						autoComplete="off"
 						value={name}
+						autoComplete="off"
+						className={styles.input}
 						onChange={this.handleChange}
 					/>
 				</label>
@@ -50,11 +46,11 @@ export class ContactForm extends Component {
 				<label>
 					Number
 					<input
-						className={styles.input}
 						type="text"
 						name="number"
-						autoComplete="off"
 						value={number}
+						autoComplete="off"
+						className={styles.input}
 						onChange={this.handleChange}
 					/>
 				</label>

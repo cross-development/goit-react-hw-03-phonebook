@@ -9,10 +9,10 @@ const Filter = ({ title, value, onChangeFilter }) => (
 		<label>
 			{title}
 			<input
-				className={styles.input}
 				type="text"
-				autoComplete="off"
 				value={value}
+				autoComplete="off"
+				className={styles.input}
 				onChange={e => onChangeFilter(e.target.value)}
 			/>
 		</label>

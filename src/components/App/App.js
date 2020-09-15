@@ -62,14 +62,12 @@ export class App extends Component {
 		}));
 	};
 
-	handleChangeFilter = filter => {
-		this.setState({ filter });
-	};
+	handleChangeFilter = filter => this.setState({ filter });
 
 	render() {
 		const { contacts, filter } = this.state;
 
-		const visibleContact = this.getVisibleContacts();
+		const visibleContacts = this.getVisibleContacts();
 
 		return (
 			<>
@@ -80,14 +78,14 @@ export class App extends Component {
 				<Section title="Contacts">
 					{contacts.length > 1 && (
 						<Filter
-							title="Find contacts by name"
 							value={filter}
+							title="Find contacts by name"
 							onChangeFilter={this.handleChangeFilter}
 						/>
 					)}
 
 					{contacts.length > 0 && (
-						<ContactList contacts={visibleContact} onRemoveContact={this.removeContactById} />
+						<ContactList contacts={visibleContacts} onRemoveContact={this.removeContactById} />
 					)}
 				</Section>
 			</>

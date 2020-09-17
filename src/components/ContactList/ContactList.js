@@ -16,7 +16,13 @@ const ContactList = ({ contacts, onRemoveContact }) => (
 
 ContactList.propTypes = {
 	onRemoveContact: PropTypes.func.isRequired,
-	contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+	contacts: PropTypes.arrayOf(
+		PropTypes.exact({
+			id: PropTypes.string.isRequired,
+			name: PropTypes.string.isRequired,
+			number: PropTypes.string.isRequired,
+		}),
+	).isRequired,
 };
 
 export default ContactList;

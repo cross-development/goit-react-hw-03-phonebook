@@ -59,6 +59,7 @@ export class App extends Component {
 	removeContactById = contactId => {
 		this.setState(prevState => ({
 			contacts: prevState.contacts.filter(({ id }) => id !== contactId),
+			filter: '',
 		}));
 	};
 
@@ -66,7 +67,6 @@ export class App extends Component {
 
 	render() {
 		const { contacts, filter } = this.state;
-
 		const visibleContacts = this.getVisibleContacts();
 
 		return (
